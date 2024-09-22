@@ -18,7 +18,7 @@ def test_updating_storage():
     
     # Act
     expected = 15
-    simple_storage.set(expected, {"from": account})  # Changed from store to set
+    simple_storage.set(expected, {"from": account})  
     
     # Assert
     assert simple_storage.get() == expected

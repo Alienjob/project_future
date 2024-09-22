@@ -46,30 +46,50 @@ tr:hover {
 
 form {
     display: flex;
+    flex-direction: column;
     margin-top: 20px;
 }
 
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
+form div {
+    margin-bottom: 20px;
+    /* Increased from 15px to 20px */
 }
 
-input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #2ecc71;
+label {
+    display: block;
+    margin-bottom: 8px;
+    /* Increased from 5px to 8px */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    /* Increased from 10px to 12px */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    /* Added margin-top */
+}
+
+input[type="submit"],
+button[type="submit"] {
+    padding: 12px 24px;
+    /* Increased padding */
+    background-color: #3498db;
     color: #fff;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #27ae60;
+    margin-top: 10px;
+    /* Added margin-top */
 }
 
 a {
@@ -99,4 +119,34 @@ a:hover {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
+}
+
+.form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    /* Increased from 20px to 30px */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    text-decoration: none;
 }
