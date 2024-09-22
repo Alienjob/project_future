@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from flask_login import current_user
 from extensions import db, login_manager
 from models import User
+from blockchain_routes import blockchain_bp
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -30,6 +31,7 @@ from tasks import tasks as tasks_blueprint
 
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(tasks_blueprint)
+app.register_blueprint(blockchain_bp, url_prefix='/blockchain')
 
 if __name__ == '__main__':
     create_tables()

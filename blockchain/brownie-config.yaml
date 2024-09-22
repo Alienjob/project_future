@@ -8,15 +8,21 @@ compiler:
     version: "0.8.0"
 
 project_structure:
+  build: build
+  contracts: contracts
+  interfaces: interfaces
+  reports: reports
+  scripts: scripts
   tests: tests
 
 networks:
   default: development
   development:
+    gas_limit: 6721975
+    gas_price: 20000000000
+    reverting_tx_gas_limit: 6721975
+    default_contract_owner: true
     cmd_settings:
       port: 8545
-      gas_limit: 12000000
+      gas_limit: 6721975
       accounts: 10
-      evm_version: istanbul
-      mnemonic: brownie
-    cmd: ganache

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Test Storage</title>
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        const value = document.getElementById('newValue').value;
+        fetch('/blockchain/test-storage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ value: parseInt(value) }),
+        }).then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            });
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+<h1>Test Storage</h1>
+<p>Current value: {{ current_value }}</p>
+<form onsubmit="submitForm(event)">
+    <input type="number" id="newValue" required>
+    <button type="submit">Set New Value</button>
+</form>
+{% endblock %}
