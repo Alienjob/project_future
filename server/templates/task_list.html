@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>My Tasks - Project Future</title>
+{% endblock %}
+
+{% block body %}
+<h1>My Tasks</h1>
+
+<div class="content">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.content }}</td>
+            <td>{{ task.date_created.date() }}</td>
+            <td>
+                <a href="{{ url_for('tasks.delete_task', id=task.id) }}">Delete</a>
+                <br>
+                <a href="{{ url_for('tasks.update_task', id=task.id) }}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ url_for('tasks.task_list') }}" method="POST">
+        <input type="text" name="content" id="content" required>
+        <input type="submit" value="Add Task">
+    </form>
+</div>
+
+<a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+{% endblock %}
