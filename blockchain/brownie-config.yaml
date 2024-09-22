@@ -1,0 +1,22 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.8.0
+
+compiler:
+  solc:
+    remappings:
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.0'
+    version: "0.8.0"
+
+project_structure:
+  tests: tests
+
+networks:
+  default: development
+  development:
+    cmd_settings:
+      port: 8545
+      gas_limit: 12000000
+      accounts: 10
+      evm_version: istanbul
+      mnemonic: brownie
+    cmd: ganache
